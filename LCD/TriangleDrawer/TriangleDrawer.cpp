@@ -39,10 +39,10 @@ void TriangleDrawer::DrawTriangle(char lcd[], int minrow, int maxrow, int mincol
 				}
 				else if (((((maxrow-minrow) +1 )/ 2) - (j+1) == i)&& j<=maxcol -1 && j>= mincol - 1)
 				{
-					lcd[((this->maxrow-this->minrow)+1)*j + i] = '|';
+					lcd[((this->maxrow-this->minrow)+1)*j + i] = '/';
 				}
 				else if (((((maxrow-minrow) +1 )/ 2) + (j) == i) && j<=maxcol -1 && j>= mincol - 1)
-					lcd[((this->maxrow-this->minrow)+1)*j + i] = '|';
+					lcd[((this->maxrow-this->minrow)+1)*j + i] = '\\';
 			}
 	}
 	else if 	(this->maxrow>=maxrow && this->minrow <= minrow && this->maxcol >= maxcol && this->mincol <= mincol && invert == true)
@@ -56,10 +56,10 @@ void TriangleDrawer::DrawTriangle(char lcd[], int minrow, int maxrow, int mincol
 				}
 				else if (((((maxrow-minrow) +1 )/ 2) - ((((maxrow-minrow)+1)/ 2) -j) == i)&& j<=maxcol -1 && j>= mincol - 1)
 				{
-					lcd[((this->maxrow-this->minrow)+1)*j + i] = '|';
+					lcd[((this->maxrow-this->minrow)+1)*j + i] = '\\';
 				}
 				else if (((((maxrow-minrow) +1 )/ 2) + ((((maxrow-minrow)+1)/ 2) -(j+1)) == i) && j<=maxcol -1 && j>= mincol - 1)
-					lcd[((this->maxrow-this->minrow)+1)*j + i] = '|';
+					lcd[((this->maxrow-this->minrow)+1)*j + i] = '/';
 			}
 	} 
 }
