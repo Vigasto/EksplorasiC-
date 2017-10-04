@@ -1,5 +1,6 @@
 #include <iostream>
 #include "SquareDrawer\SquareDrawer.h"
+#include "TriangleDrawer\TriangleDrawer.h"
 
 using namespace std;
 
@@ -11,12 +12,15 @@ int main()
 	char lcd[100];
 	//construct your objects
 	SquareDrawer squareDrawer(1, 10, 1, 10);
+	TriangleDrawer triangleDrawer(1, 10, 1, 10);
 	//initialize and work with your objects
 	for (int i = 0; i<99; i++)
 		lcd[i] = ' ';
 	squareDrawer.DrawSquare(lcd, 1, 10, 1, 10);
-	squareDrawer.DrawSquare(lcd, 1, 5, 1, 5);
-	squareDrawer.DrawSquare(lcd, 8, 9, 8, 9);
+	triangleDrawer.DrawTriangle(lcd, 1, 10, 1, 5, false);
+	triangleDrawer.DrawTriangle(lcd, 1, 10, 6, 10, true);
+	triangleDrawer.DrawTriangle(lcd, 1, 10, 6, 10, false);
+	triangleDrawer.DrawTriangle(lcd, 1, 10, 1, 5, true);
 	//display
 	displayLCD(lcd,1,10,1,10);
 	return 0;

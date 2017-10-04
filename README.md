@@ -6,6 +6,7 @@ Terdapat file file yang perlu kalian implementasi. SquareDrawer sudah diimplemen
 - [x] Tambahkan `.gitignore` supaya file yang ditrack hanyalah file berekstensi `.cpp` dan `.h` saja
 - [x] Implementasi SquareDrawer
 - [x] Implementasi TriangleDrawer
-- [ ] Implementasi Filler
+  -    [ ] Betulkan Filler
+- [ ] Implementasi Filler 
 
 Silahkan dikerjakan, kontribusi kalian bakal ditrack di commit history :> Semangat!
