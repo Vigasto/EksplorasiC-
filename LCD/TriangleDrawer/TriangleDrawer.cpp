@@ -30,6 +30,8 @@ void TriangleDrawer::DrawTriangle(char lcd[], int minrow, int maxrow, int mincol
 {
 	if 	(this->maxrow>=maxrow && this->minrow <= minrow && this->maxcol >= maxcol && this->mincol <= mincol && invert == false)
 	{
+		int k=((maxrow-minrow +1)/ 2)-1;
+		int L=((maxrow-minrow +1)/ 2)-1;
 		for (int j = this->mincol - 1; j <=this->maxcol - 1; j++)
 			for (int i = this->minrow - 1; i <=this->maxrow - 1; i++)
 			{
@@ -37,16 +39,20 @@ void TriangleDrawer::DrawTriangle(char lcd[], int minrow, int maxrow, int mincol
 				{
 					lcd[((this->maxrow-this->minrow)+1)*j + i] = '-';
 				}
-				else if (((((maxrow-minrow) +1 )/ 2) - (j+1) == i)&& j<=maxcol -1 && j>= mincol - 1)
+				else if (( k == i)&& j<=maxcol -1 && j>= mincol - 1)
 				{
-					lcd[((this->maxrow-this->minrow)+1)*j + i] = '/';
+					lcd[((this->maxrow-this->minrow)+1)*j + i + minrow - 1] = '/';
+					k--;
+					L++;
 				}
-				else if (((((maxrow-minrow) +1 )/ 2) + (j) == i) && j<=maxcol -1 && j>= mincol - 1)
-					lcd[((this->maxrow-this->minrow)+1)*j + i] = '\\';
+				else if ((L == i) && j<=maxcol -1 && j>= mincol - 1)
+					lcd[((this->maxrow-this->minrow)+1)*j + i+ minrow - 1] = '\\';
 			}
 	}
 	else if 	(this->maxrow>=maxrow && this->minrow <= minrow && this->maxcol >= maxcol && this->mincol <= mincol && invert == true)
 	{
+		int k=((maxrow-minrow +1)/ 2)-1;
+		int m= ((maxrow-minrow +1)/ 2);
 		for (int j = this->mincol - 1; j <=this->maxcol - 1; j++)
 			for (int i = this->minrow - 1; i <=this->maxrow - 1; i++)
 			{
@@ -54,12 +60,15 @@ void TriangleDrawer::DrawTriangle(char lcd[], int minrow, int maxrow, int mincol
 				{
 					lcd[((this->maxrow-this->minrow)+1)*j + i] = '-';
 				}
-				else if (((((maxrow-minrow) +1 )/ 2) - ((((maxrow-minrow)+1)/ 2) -j) == i)&& j<=maxcol -1 && j>= mincol - 1)
+				else if ((m-k == i)&& j<=maxcol -1 && j>= mincol - 1)
 				{
-					lcd[((this->maxrow-this->minrow)+1)*j + i] = '\\';
+					lcd[((this->maxrow-this->minrow)+1)*j + i + minrow-1] = '\\';
 				}
-				else if (((((maxrow-minrow) +1 )/ 2) + ((((maxrow-minrow)+1)/ 2) -(j+1)) == i) && j<=maxcol -1 && j>= mincol - 1)
-					lcd[((this->maxrow-this->minrow)+1)*j + i] = '/';
+				else if ((m+k-1 == i) && j<=maxcol -1 && j>= mincol - 1)
+				{
+					lcd[((this->maxrow-this->minrow)+1)*j + i + minrow - 1] = '/';
+					k--;
+				}
 			}
 	} 
 }
